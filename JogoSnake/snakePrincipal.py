@@ -21,7 +21,7 @@ ESQUERDA = 4
 DIREITA = 6
 
 #Bloco (unidade de tamanho da snake e das comidas) 
-bloco=[20,20]
+bloco=[18,18]
 
 #Quadrado
 #funcao rect(X, Y, largura, altura)
@@ -136,7 +136,7 @@ while not morto:
     #se variavel morto for verdadeira, fim de jogo!
     if morto == 1:
         print(f'Fim de jogo!')
-        arquivo = open('TestePython/JogoSnake/log_pontuacao.txt','a')
+        arquivo = open('Intro_Pygame\JogoSnake/log_pontuacao.txt','a')
         arquivo.write(f'Pontuacao: {pontos}\n')
         arquivo.close()
     
@@ -166,8 +166,8 @@ while not morto:
     #preenche o fundo
     fundoJanela.fill(PRETO)
 
-    #Fundo scoreboard
-    pygame.draw.rect(fundoJanela,AZUL,Rect([10,10],[420,100]),1)
+    #Fundo scoreboard  // Bordas do score
+    pygame.draw.rect(fundoJanela,AZUL,Rect([10,10],[420,100]),2)
 
     #Texto
     font = pygame.font.Font(None, 36)
@@ -177,8 +177,8 @@ while not morto:
     textpos.top = 45
     fundoJanela.blit(text, textpos)
     
-    #Fundo jogo
-    pygame.draw.rect(fundoJanela,AZUL,Rect([10,120],[420,380]),1)
+    #Fundo jogo // Bordas do campo de jogo
+    pygame.draw.rect(fundoJanela,AZUL,Rect([10,120],[420,380]),2)
 
     #desenha a serpente
     for x in snake:
