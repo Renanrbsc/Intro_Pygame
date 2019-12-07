@@ -85,7 +85,7 @@ while True: # loop principal do game
        
     if event.type == KEYDOWN: #verifica teclado
         if event.key == K_UP: #verifica pulo
-                ninja.pular()
+            ninja.pular()
            
         if event.key == K_LEFT: #verifica esquerda
             ninja.esquerda()
