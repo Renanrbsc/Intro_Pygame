@@ -5,7 +5,11 @@ from pygame.locals import *
 largura_tela = 900 # WIDTH X
 altura_tela = 450  # HEIGHT Y
 speed = 10
-escala = 0,0,50,75
+
+largura_ninja = 70 #x
+altura_ninja = 90 #y
+
+
 class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
                                    # atribui variaveis para atributos e funcoes para comportamento
 
@@ -13,28 +17,28 @@ class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
         pygame.sprite.Sprite.__init__(self) # construtor do pygame // inicializa a classe
 
         # lista de imagens
-        self.images = [pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_002.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_003.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_004.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_005.png').convert_alpha(),
+        self.images = [pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_002a.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_003a.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_004a.png').convert_alpha(),
                        ]
+
 
         # contador vinculado as imagens
         self.sequencia_image = 0
 
-        # image inicial
-        self.image = pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_002.png').convert_alpha() 
+        # Conversao de image inicial
+        self.image = pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha() 
+        # self.image = pygame.transform.scale(self.image,(largura_ninja,altura_ninja)) # escalando dimensoes imagem x y
         self.rect = self.image.get_rect() 
         self.rect[0] = 100 # primeira posicao tupla posicionamento x
-        self.rect[1] = altura_tela / 2 - 30 # segunda posicao tupla posicionamento y
-        #self.rect[2] = 50 # terceira posicao tupla dimensao imagem x
-        #self.rect[3] = 75 # quarta posicao tupla dimensao imagem y
-
+        self.rect[1] = altura_tela / 2 +100 # segunda posicao tupla posicionamento y
         print(self.rect)
 
     def update(self):
         self.sequencia_image = (self.sequencia_image + 1) % 4   #  % 4 zera o contador 
         self.image = self.images[self.sequencia_image]          #  e reseta a sequancia de image
+       
         
 
 pygame.init()
