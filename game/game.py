@@ -2,54 +2,68 @@ import pygame
 from pygame.locals import *
 
 # CONSTANTES
-largura_tela = 850
-altura_tela = 500
+largura_tela = 900 # WIDTH X
+altura_tela = 450  # HEIGHT Y
 speed = 10
-
+escala = 0,0,50,75
 class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
                                    # atribui variaveis para atributos e funcoes para comportamento
 
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
+        pygame.sprite.Sprite.__init__(self) # construtor do pygame // inicializa a classe
 
-        self.image = pygame.load('ninja run\2d-game-sprite-6_001.png').convert_alpha()
-        self.rect = self.image.get_rect()
+        # lista de imagens
+        self.images = [pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_002.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_003.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_004.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_005.png').convert_alpha(),
+                       ]
 
+        # contador vinculado as imagens
+        self.sequencia_image = 0
 
+        # image inicial
+        self.image = pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_002.png').convert_alpha() 
+        self.rect = self.image.get_rect() 
+        self.rect[0] = 100 # primeira posicao tupla posicionamento x
+        self.rect[1] = altura_tela / 2 - 30 # segunda posicao tupla posicionamento y
+        #self.rect[2] = 50 # terceira posicao tupla dimensao imagem x
+        #self.rect[3] = 75 # quarta posicao tupla dimensao imagem y
 
-        self.plano_fundo = pygame.image.load('Intro_pygame\game\RvaMB7.png')
-        self.plano_fundo = pygame.transform.scale(plano_fundo,(largura_tela,altura_tela))    
-        self.rect = self.image.get_rect()
         print(self.rect)
 
     def update(self):
-        pass
+        self.sequencia_image = (self.sequencia_image + 1) % 4   #  % 4 zera o contador 
+        self.image = self.images[self.sequencia_image]          #  e reseta a sequancia de image
         
 
 pygame.init()
-tela = pygame.display.set_mode((largura_tela,altura_tela))
+tela = pygame.display.set_mode((largura_tela,altura_tela)) #definindo janela e tamanho
 
-plano_fundo = pygame.image.load('Intro_pygame\game\RvaMB7.png')
-plano_fundo = pygame.transform.scale(plano_fundo,(largura_tela,altura_tela)) 
+plano_fundo = pygame.image.load('Intro_pygame\game\game_background_3\game_background_3.1.png') # load do plano de fundo
+plano_fundo = pygame.transform.scale(plano_fundo,(largura_tela,altura_tela)) # escala plano para tamanho da tela
 
 ninja_grupo = pygame.sprite.Group() # grupo de objetos do mesmo tipo
 ninja = Ninja() # variavel que recebe a classe/objeto
-ninja_grupo.append(ninja) # adicionando o objeto no grupo 
+ninja_grupo.add(ninja) # adicionando o objeto no grupo 
 
+fps = pygame.time.Clock() # atribui uma variavel para limitar fps
 
-while True:
+while True: # loop principal do game
+
+    fps.tick(10) # chama metodo limitar FPS 
      
-
-    tela.blit(plano_fundo,(0,0))
-
-    for event in pygame.event.get():
+    for event in pygame.event.get(): # evento de sair da janela
         if event.type == QUIT:
             pygame.quit()
 
-    ninja_grupo.update()
+    tela.blit(plano_fundo,(0,0)) # coloca plano de fundo na posicao x y
 
-    ninja_grupo.draw(tela)
+    ninja_grupo.update() # atualizaçao de frames do grupo de objetos 'Ninja'
+
+    ninja_grupo.draw(tela) # desenhando o grupo de objetos 'Ninja'
         
-    pygame.display.update()
+    pygame.display.update() # atualizacao do janela de game
+
 
     
