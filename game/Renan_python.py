@@ -186,11 +186,7 @@ while True: # loop principal do game
            
         if event.key == K_LEFT: #verifica esquerda
             ninja.esquerda()
-                # if event.key == K_LEFT:   # funcao para inverter imagem ao mudar lado
-                #     ninja.image = pygame.transform.flip(ninja.image,True,False)
-                # else:
-                #     ninja.image = pygame.transform.flip(ninja.image,False,False)
-       
+               
         if event.key == K_RIGHT: #verifica direita
             ninja.direita()
 
@@ -198,14 +194,19 @@ while True: # loop principal do game
 
     if esta_fora_tela(camada1_grupo.sprites()[0]): # chama funcao e verifica se a camada esta negativa ao x inicial
         camada1_grupo.remove(camada1_grupo.sprites()[0]) # remove a camada negativa q saiu da tela
-        camada2_grupo.remove(camada2_grupo.sprites()[0])
-        camada3_grupo.remove(camada2_grupo.sprites()[0])
-
 
         nova_camada1 = Camada1(camada_largura - 15) # cria nova camada e posiciona -15 pixel do original
         camada1_grupo.add(nova_camada1) #adiciona ao grupo de camada para update
+    
+    if esta_fora_tela(camada1_grupo.sprites()[0]):
+        camada2_grupo.remove(camada2_grupo.sprites()[0])
+    
         nova_camada2 = Camada2(camada_largura - 15) # cria nova camada e posiciona -15 pixel do original
         camada2_grupo.add(nova_camada2)
+
+    if esta_fora_tela(camada3_grupo.sprites()[0]):
+        camada3_grupo.remove(camada2_grupo.sprites()[0])
+
         nova_camada3 = Camada3(camada_largura - 15) # cria nova camada e posiciona -15 pixel do original
         camada3_grupo.add(nova_camada3)
 
