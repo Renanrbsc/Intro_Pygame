@@ -4,8 +4,8 @@ from pygame.locals import *
 # CONSTANTES
 largura_tela = 900 # WIDTH X
 altura_tela = 450  # HEIGHT Y
-PULO = 20
-SPEED= 15
+PULO = 10
+SPEED= 10
 gravidade = 10
 
 class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
@@ -77,7 +77,7 @@ fps = pygame.time.Clock() # atribui uma variavel para limitar fps
 
 while True: # loop principal do game
 
-    fps.tick(20) # chama metodo limitar FPS 
+    fps.tick(60) # chama metodo limitar FPS 
      
     for event in pygame.event.get(): # verifica evento de janela
         if event.type == QUIT: #verifica evento sair
