@@ -30,7 +30,7 @@ class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
 
         # contador vinculado as imagens
         self.sequencia_image = 0
-
+       
         # Conversao de image inicial
         self.image = pygame.image.load('Intro_pygame\game\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha() 
         self.rect = self.image.get_rect() 
@@ -58,11 +58,15 @@ class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
         if self.rect[1] == 325: # limitador para personagem permanecer na tela
             self.rect[1] -= self.gravidade # anula gravidade no eixo y '325'
         
-    def update(self):
-        self.sequencia_image = (self.sequencia_image + 1) % 4   #  % 4 zera o contador 
-        self.image = self.images[self.sequencia_image]          #  e reseta a sequancia de image
-        self.gravidade_ninja() # chamando metodo de gravidade para atualizaçao
+    def animacao_sprite(self):
+            self.sequencia_image = (self.sequencia_image + 1 ) % 4   #  % 4 zera o contador 
+            self.image = self.images[self.sequencia_image]          #  e reseta a sequancia de image       
         
+    def update(self):
+        self.animacao_sprite()
+        self.gravidade_ninja() # chamando metodo de gravidade para atualizaçao
+     
+
 pygame.init()
 tela = pygame.display.set_mode((largura_tela,altura_tela)) #definindo janela e tamanho
 
@@ -77,7 +81,7 @@ fps = pygame.time.Clock() # atribui uma variavel para limitar fps
 
 while True: # loop principal do game
 
-    fps.tick(60) # chama metodo limitar FPS 
+    fps.tick(30) # chama metodo limitar FPS 
      
     for event in pygame.event.get(): # verifica evento de janela
         if event.type == QUIT: #verifica evento sair
