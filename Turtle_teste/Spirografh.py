@@ -3,7 +3,7 @@ import time
 
 speed(0)
 colormode(255)
-clrs =["MidnightBlue", "Navy", "DarkBlue", "MediumBlue", "RoyalBlue", "MediumSlateBlue", "CornflowerBlue", "DodgerBlue", "DeepskyBlue", "LightSkyBlue", "SkyBlue", "LightBlue"]
+clrs =["MidnightBlue", "Navy", "DarkBlue", "MediumBlue", "RoyalBlue", "MediumSlateBlue", "CornflowerBlue", "DodgerBlue", "DeepskyBlue", "LightSkyBlue", "SkyBlue", "LightBlue" ]
 
 time.sleep(2) # tempo para iniciar
 
