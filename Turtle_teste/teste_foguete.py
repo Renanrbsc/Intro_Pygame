@@ -3,7 +3,7 @@ from random import randint, sample
 
 def draw():
 	size = randint(30, 90)
-	angles = (90, 30, 70)
+	angles = (75,45,120,)
 	angle = sample(angles, 1)[0]
 
 	
@@ -30,6 +30,6 @@ def draw():
 	
 tt.circle(10)
 for i in range(200):
-#	tt.pensize(i%0) #acrescenta tamanho na linha
+	tt.pensize(i%10) #acrescenta tamanho na linha
 	draw()
 tt.done()

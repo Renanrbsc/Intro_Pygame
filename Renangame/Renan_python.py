@@ -20,10 +20,15 @@ class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
 
         # lista de imagens
         self.images = [pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_002a.png').convert_alpha(),
                        pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_002a.png').convert_alpha(),
                        pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_003a.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_003a.png').convert_alpha(),
+                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_004a.png').convert_alpha(),
                        pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_004a.png').convert_alpha(),
                        ]
+                       
 
         # Variaveis da Classe Ninja
         self.pulo = PULO
@@ -63,7 +68,7 @@ class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
             self.rect[1] -= self.gravidade # anula gravidade no eixo y '325'
         
     def animacao_sprite(self):
-            self.sequencia_image = (self.sequencia_image + 1 ) % 4   #  % 4 zera o contador 
+            self.sequencia_image = (self.sequencia_image + 1 ) % 8   #  % 4 zera o contador 
             self.image = self.images[self.sequencia_image]          #  e reseta a sequancia de image       
         
     def update(self):
