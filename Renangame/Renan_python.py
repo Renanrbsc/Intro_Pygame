@@ -19,14 +19,14 @@ class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
         pygame.sprite.Sprite.__init__(self) # construtor do pygame // inicializa a classe
 
         # lista de imagens
-        self.images = [pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_002a.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_002a.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_003a.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_003a.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_004a.png').convert_alpha(),
-                       pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_004a.png').convert_alpha(),
+        self.images = [pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha(),
+                       pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha(),
+                       pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_002a.png').convert_alpha(),
+                       pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_002a.png').convert_alpha(),
+                       pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_003a.png').convert_alpha(),
+                       pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_003a.png').convert_alpha(),
+                       pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_004a.png').convert_alpha(),
+                       pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_004a.png').convert_alpha(),
                        ]
                        
 
@@ -41,7 +41,7 @@ class Ninja(pygame.sprite.Sprite): # modela um objeto do mundo real
         self.sequencia_image = 0
        
         # Conversao de image inicial
-        self.image = pygame.image.load('Intro_pygame\Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha() 
+        self.image = pygame.image.load('Renangame\\ninja run\\2d-game-sprite-6_001a.png').convert_alpha() 
         self.rect = self.image.get_rect() 
         self.rect[0] = 100 # primeira posicao tupla posicionamento x
         self.rect[1] = 315 # segunda posicao tupla posicionamento y
@@ -84,7 +84,7 @@ class Camada1(pygame.sprite.Sprite):
         self.speed = SPEED
 
         # Conversao de image inicial
-        self.image = pygame.image.load('Intro_pygame\Renangame\layers\ground_3.png').convert_alpha() 
+        self.image = pygame.image.load('Renangame\layers\ground_3.png').convert_alpha() 
         self.image = pygame.transform.scale(self.image,(largura_tela,camada_altura)) # escala plano para tamanho da tela
         self.rect = self.image.get_rect() 
 
@@ -108,7 +108,7 @@ class Camada2(pygame.sprite.Sprite):
         self.speed = SPEED
 
         # Conversao de image inicial
-        self.image = pygame.image.load('Intro_pygame\Renangame\layers\ground_2.png').convert_alpha() 
+        self.image = pygame.image.load('Renangame\layers\ground_2.png').convert_alpha() 
         self.image = pygame.transform.scale(self.image,(largura_tela,camada_altura)) # escala plano para tamanho da tela
         self.rect = self.image.get_rect() 
 
@@ -132,7 +132,7 @@ class Camada3(pygame.sprite.Sprite):
         self.speed = SPEED
 
         # Conversao de image inicial
-        self.image = pygame.image.load('Intro_pygame\Renangame\layers\ground_3.png').convert_alpha() 
+        self.image = pygame.image.load('Renangame\layers\ground_3.png').convert_alpha() 
         self.image = pygame.transform.scale(self.image,(largura_tela,camada_altura)) # escala plano para tamanho da tela
         self.rect = self.image.get_rect() 
 
@@ -154,7 +154,7 @@ def esta_fora_tela(sprite): # funcao para verificar se há camada fora da tela
 pygame.init()
 tela = pygame.display.set_mode((largura_tela,altura_tela)) #definindo janela e tamanho
 
-plano_fundo = pygame.image.load('Intro_pygame\Renangame\game_background_3\game_background_3.1.png') # load do plano de fundo
+plano_fundo = pygame.image.load('Renangame\game_background_3\game_background_3.1.png') # load do plano de fundo
 plano_fundo = pygame.transform.scale(plano_fundo,(largura_tela,altura_tela)) # escala plano para tamanho da tela
 
 camada1_grupo = pygame.sprite.Group() # grupo de objetos do mesmo tipo
