@@ -1,0 +1,3 @@
+Pontuacao: 0
+Pontuacao: 90
+Pontuacao: 5

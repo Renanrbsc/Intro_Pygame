@@ -136,7 +136,7 @@ while not morto:
     #se variavel morto for verdadeira, fim de jogo!
     if morto == 1:
         print(f'Fim de jogo!')
-        arquivo = open('JogoSnake/log_pontuacao.txt','a')
+        arquivo = open('SnakeGame/log_pontuacao.txt','a')
         arquivo.write(f'Pontuacao: {pontos}\n')
         arquivo.close()
     
